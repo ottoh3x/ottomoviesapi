@@ -1,3 +1,5 @@
 uvicorn
 unicorn
 bs4
+fastapi
+requests

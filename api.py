@@ -4,6 +4,11 @@ from MoviesApi import *
 app = FastAPI()
 
 
+@app.get('/')
+def main():
+    return "Hello Friend!"
+
+
 @app.get('/api/trending_movies')
 def trending_movies():
     trending_movies = HomeMoviesApi.trendingMovies(None)
@@ -27,7 +32,8 @@ def popular_tv():
     popular_tv = HomeMoviesApi.popularTV(None)
     return popular_tv
 
+
 @app.get('/api/popular_movies')
 def popular_movies():
     popular_movies = HomeMoviesApi.popularMovies(None)
-    return popular_movies  
+    return popular_movies
