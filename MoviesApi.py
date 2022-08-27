@@ -164,3 +164,6 @@ class HomeMoviesApi():
         iframe = soup.find(id="iframe-embed")['src']
         links['iframe'] = iframe
         return links
+
+a = HomeMoviesApi.moviesEpisode(movie_id="the-innocents-85632")
+print(a)

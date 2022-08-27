@@ -52,6 +52,12 @@ def popular_movies():
     popular_movies = HomeMoviesApi.popularMovies(None)
     return popular_movies
 
+@app.get('/api/episode/{movie_id}')
+def movie_episode(movie_id : str):
+    movie_episode = HomeMoviesApi.moviesEpisode(movie_id=movie_id)
+    return movie_episode
+
 
 if __name__== "__main__":
    uvicorn.run(app, host="127.0.0.1", port=8080)
+
