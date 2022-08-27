@@ -52,6 +52,11 @@ def popular_movies():
     popular_movies = HomeMoviesApi.popularMovies(None)
     return popular_movies
 
+@app.get('/api/latest_movies')
+def latest_movies():
+    latest_movies = HomeMoviesApi.latestMovies(None)
+    return latest_movies
+
 @app.get('/api/episode/{movie_id}')
 def movie_episode(movie_id : str):
     movie_episode = HomeMoviesApi.moviesEpisode(movie_id=movie_id)
