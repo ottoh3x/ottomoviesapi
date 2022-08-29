@@ -12,7 +12,9 @@
         { "src": "/api/popular_movies", "dest": "api.py" },
         { "src": "/api/popular_tv", "dest": "api.py" },
         { "src": "/api/latest_movies", "dest": "api.py" },
-        { "src": "/api/episode/(.*)", "dest": "api.py" },
+        { "src": "/api/movie/(.*)", "dest": "api.py" },
+        { "src": "/api/tv/(.*)", "dest": "api.py" },
+
         { "src": "/docs", "dest": "api.py" },
         { "src": "/openapi.json", "dest": "api.py" },
         { "src": "/", "dest": "api.py" }

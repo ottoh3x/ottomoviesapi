@@ -339,6 +339,10 @@ class HomeMoviesApi():
         links = {}
         data = []
         season = []
+        c = []
+        g = []
+        p = []
+        co = []
         url = f"https://lookmoviess.com/tv/{tv_id}"
         r = requests.get(url).text
         soup = BeautifulSoup(r, "html.parser")
@@ -411,5 +415,5 @@ class HomeMoviesApi():
 
         
 
-        return data,ifr,season
+        return data,season
 
