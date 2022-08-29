@@ -3,3 +3,5 @@ unicorn
 bs4
 fastapi
 requests
+aiohttp
+asyncio
