@@ -277,13 +277,16 @@ class HomeMoviesApi():
         iframe = soup.find(id="iframe-embed")['src']
         details = soup.find('div', "detail_page-infor")
         title = details.find("h2", "heading-name").text
-        imdb = details.find('button', 'btn-imdb').text.replace(' ', "").replace("IMDB:", '')
+        imdb = details.find(
+            'button', 'btn-imdb').text.replace(' ', "").replace("IMDB:", '')
         trailer = soup.find(id="iframe-trailer")['data-src']
         image = details.find('img')['src']
         description = details.find('div', 'description').text.strip()
-        released = details.find_all('div', 'row-line')[0].text.replace(" ", "").replace("Released:", "")
+        released = details.find_all(
+            'div', 'row-line')[0].text.replace(" ", "").replace("Released:", "")
         released = released.strip()
-        duration = details.find_all('div', 'row-line')[3].text.replace(" ", "").replace("Duration:", "")
+        duration = details.find_all(
+            'div', 'row-line')[3].text.replace(" ", "").replace("Duration:", "")
         duration = duration.strip()
         links['title'] = title
         links['imdb'] = imdb
@@ -331,6 +334,7 @@ class HomeMoviesApi():
         r = requests.get(url).text
         soup = BeautifulSoup(r, "html.parser")
         iframe = soup.find(id="iframe-embed")['src']
+        tmdb_id = soup.find(id="watch-iframe")['data-tmdb-id']
         s = soup.find('div', 'sl-content')
         seasons = s.find('ul', 'slcs-ul').find_all('li')
         for x in seasons:
@@ -354,18 +358,21 @@ class HomeMoviesApi():
                 episode_title = x.find('a', 'episode-item')['title']
                 t.append({"episode_title": episode_title,
                           "episode_num": episode_num,
-                          "href":href,
-                          "season_num":season_num})
+                          "href": href,
+                          "season_num": season_num})
 
         details = soup.find('div', "detail_page-infor")
         title = details.find("h2", "heading-name").text
-        imdb = details.find('button', 'btn-imdb').text.replace(' ', "").replace("IMDB:", '')
+        imdb = details.find(
+            'button', 'btn-imdb').text.replace(' ', "").replace("IMDB:", '')
         trailer = soup.find(id="iframe-trailer")['data-src']
         image = details.find('img')['src']
         description = details.find('div', 'description').text.strip()
-        released = details.find_all('div', 'row-line')[0].text.replace(" ", "").replace("Released:", "")
+        released = details.find_all(
+            'div', 'row-line')[0].text.replace(" ", "").replace("Released:", "")
         released = released.strip()
-        duration = details.find_all('div', 'row-line')[3].text.replace(" ", "").replace("Duration:", "")
+        duration = details.find_all(
+            'div', 'row-line')[3].text.replace(" ", "").replace("Duration:", "")
         duration = duration.strip()
         links['title'] = title
         links['imdb'] = imdb
@@ -375,6 +382,7 @@ class HomeMoviesApi():
         links['released'] = released
         links['duration'] = duration
         links['iframe'] = iframe
+        links['tmdb_id'] = tmdb_id
         data.append(links)
         genre = details.find_all('div', 'row-line')[1]
         for x in genre.find_all('a'):
@@ -399,5 +407,4 @@ class HomeMoviesApi():
             title = x['title']
             p.append({"productions": {"url": url, "title": title}})
 
-        return data, season,c,p,co,g
-
+        return data, season, c, p, co, g
