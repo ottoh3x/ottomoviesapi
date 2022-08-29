@@ -3,8 +3,8 @@
     "public": false,
     "builds": [{ "src": "api.py", "use": "@vercel/python" }],
     "routes": [
-        { "src": "/api/trending_movies/", "dest": "api.py" },
-        { "src": "/api/trending_tv/", "dest": "api.py" },
+        { "src": "/api/trending_movies/(.*)", "dest": "api.py" },
+        { "src": "/api/trending_tv", "dest": "api.py" },
         { "src": "/api/popular_movies/", "dest": "api.py" },
         { "src": "/api/popular_tv/", "dest": "api.py" },
         { "src": "/api/latest_movies/", "dest": "api.py" },
