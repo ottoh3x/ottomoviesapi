@@ -1,5 +1,5 @@
 uvicorn
-unicorn
+gunicorn
 bs4
 fastapi
 requests
