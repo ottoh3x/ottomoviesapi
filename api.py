@@ -23,6 +23,29 @@ def main():
     return "Hello Friend!"
 
 
+@app.get('/api/movies/{page}')
+async def movies(page:int):
+    movies = HomeMoviesApi.Movies(page=page)
+    return movies
+
+@app.get('/api/tv-shows/{page}')
+async def tvshows(page:int):
+    tvshows = HomeMoviesApi.TV(page=page)
+    return tvshows
+    
+
+@app.get('/api/top-imdb/movies/{page}')
+async def topImdbMovies(page:int):
+    imdbmovies = HomeMoviesApi.TOPIMDBMOVIES(page=page)
+    return imdbmovies
+
+@app.get('/api/top-imdb/tv-shows/{page}')
+async def topImdbtv(page:int):
+    imdbtv = HomeMoviesApi.TOPIMDBTV(page=page)
+    return imdbtv
+
+
+
 @app.get('/api/trending_movies')
 def trending_movies():
     trending_movies = HomeMoviesApi.trendingMovies(None)
@@ -61,6 +84,11 @@ def latest_movies():
 def movie_episode(movie_id : str):
     movie_episode = HomeMoviesApi.moviesEpisode(movie_id=movie_id)
     return movie_episode
+
+@app.get('/api/episode/tv/{tv_id}')
+def tv_episode(tv_id : str):
+    tv_episode = HomeMoviesApi.tvEpisode(tv_id=tv_id)
+    return tv_episode
 
 
 if __name__== "__main__":

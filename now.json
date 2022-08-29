@@ -3,6 +3,10 @@
     "public": false,
     "builds": [{ "src": "api.py", "use": "@vercel/python" }],
     "routes": [
+        { "src": "/api/movies/(.*)", "dest": "api.py" },
+        { "src": "/api/tv-shows/(.*)", "dest": "api.py" },
+        { "src": "/api/top-imdb/movies/(.*)", "dest": "api.py" },
+        { "src": "/api/top-imdb/tv-shows/(.*)", "dest": "api.py" },
         { "src": "/api/trending_movies", "dest": "api.py" },
         { "src": "/api/trending_tv", "dest": "api.py" },
         { "src": "/api/popular_movies", "dest": "api.py" },
