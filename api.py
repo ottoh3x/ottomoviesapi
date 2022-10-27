@@ -22,6 +22,10 @@ app.add_middleware(
 def main():
     return "Hello Friend!"
 
+@app.get('/api/anime/{animeid}')
+async def movies(animeid:str):
+    anime = HomeMoviesApi.anime(animeid=animeid)
+    return anime
 
 @app.get('/api/movies/{page}')
 async def movies(page:int):

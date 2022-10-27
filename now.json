@@ -9,6 +9,7 @@
         { "src": "/api/top-imdb/tv-shows/(.*)", "dest": "api.py" },
         { "src": "/api/trending_movies", "dest": "api.py" },
         { "src": "/api/trending_tv", "dest": "api.py" },
+        { "src": "/api/anime/(.*)", "dest": "api.py" },
         { "src": "/api/popular_movies", "dest": "api.py" },
         { "src": "/api/popular_tv", "dest": "api.py" },
         { "src": "/api/latest_movies", "dest": "api.py" },
