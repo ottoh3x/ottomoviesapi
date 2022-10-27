@@ -25,7 +25,7 @@ class HomeMoviesApi():
     def anime(animeid):
         data = []
         r = requests.get(f"https://animetitans.com/anime/{animeid}")
-        soup = BeautifulSoup(r.text, "lxml")
+        soup = BeautifulSoup(r.text, "html.parser")
         body = soup.find('div', 'postbody')
         title = body.find('h1', 'entry-title').text
         synopsis = body.find('div', 'synp').find('div','entry-content').p.text
